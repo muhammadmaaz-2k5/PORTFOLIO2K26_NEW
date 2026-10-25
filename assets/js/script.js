@@ -32,6 +32,8 @@ $(document).ready(function () {
     // smooth scrolling
     $('a[href*="#"]').on('click', function (e) {
         e.preventDefault();
+        $('#menu').removeClass('fa-times');
+        $('.navbar').removeClass('nav-toggle');
         let target = $($(this).attr('href'));
         if (target.length) {
             $('html, body').animate({

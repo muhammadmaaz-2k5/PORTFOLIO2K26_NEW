@@ -108,49 +108,64 @@ header .navbar ul li a:hover{
   color: rgb(24, 2, 63);
   display: none;
 }
-@media(max-width:768px){
+@media(max-width:820px){
   #menu{
       display: block;
   }
+  header{
+    padding: 1.4rem 5%;
+  }
+  header .logo{
+    font-size: 1.8rem;
+  }
   header .navbar{
+    display: none;
     position: fixed;
-    top: 6.5rem; right: -120%;
-    width: 75%;
-    height: 100%;
+    top: 6.5rem;
+    right: 0;
+    width: 28rem;
+    max-width: 85vw;
+    height: calc(100vh - 6.5rem);
     text-align: left;
     align-items: flex-start;
-    background-color: #0e0f31;
+    background-color: rgba(14, 15, 49, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.6);
+    overflow-y: auto;
+    z-index: 9999;
+  }
+  header .navbar.nav-toggle{
+    display: block;
   }
   header .navbar ul{
     flex-flow: column;
-    padding: 1rem;
+    padding: 1.5rem 1rem;
+    width: 100%;
   }
   header .navbar ul li{
-    text-align: center;
+    text-align: left;
     width: 100%;
-    margin: 1rem 0;
-    border-radius: .5rem;
-    width: 26rem;
+    margin: 0.8rem 0;
   }
   header .navbar ul li a{
     display: block;
-    padding: 1rem;
-    text-align: left;
-    color: #fff;
-    font-size: 2rem;
+    padding: 1rem 1.4rem;
+    color: #cbd5e1;
+    font-size: 1.7rem;
+    border-radius: 0.6rem;
   }
   header .navbar ul li a.active,
   header .navbar ul li a:hover{
-    padding: 1rem;
+    padding: 1rem 1.4rem;
     color: #fff;
+    background: rgba(1, 26, 255, 0.25);
     border-radius: .5rem;
-    border-bottom: .5rem solid #011aff;
+    border-bottom: none;
   }
   .fa-times{
     transform: rotate(180deg);
-  }
-  header .navbar.nav-toggle{
-    right: 0;
   }
 }
 /* hamburger icon ends */
@@ -173,7 +188,8 @@ header .navbar ul li a:hover{
   flex-wrap: wrap;
   gap:1rem;
   margin: 2rem auto;
-  width: 50%;
+  width: 92%;
+  max-width: 650px;
   justify-content: center;
   align-items: center;
 }

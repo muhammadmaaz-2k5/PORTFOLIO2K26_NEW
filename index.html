@@ -53,6 +53,9 @@
         color: #a5b4fc !important; font-weight: 600 !important;
         box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
       }
+      #menu {
+        font-size: 2.8rem; cursor: pointer; color: #f1f5f9; display: none; z-index: 1001;
+      }
       .home {
         position: relative; display: flex; align-items: center; justify-content: space-between;
         gap: 4.5rem; min-height: 100vh; padding: 13rem 8% 7rem;
@@ -73,7 +76,7 @@
         margin-bottom: 2rem; box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
       }
       .maaz-hero-title {
-        font-size: 5.4rem !important; font-weight: 850 !important; color: #ffffff !important;
+        font-size: 5.4rem; font-weight: 850 !important; color: #ffffff !important;
         line-height: 1.15; margin: 0 0 1rem; letter-spacing: -0.03em;
       }
       .maaz-gradient-name {
@@ -82,7 +85,7 @@
         filter: drop-shadow(0 0 35px rgba(96, 165, 250, 0.35)); display: inline-block;
       }
       .maaz-hero-role {
-        font-size: 2.2rem !important; font-weight: 600 !important; color: #cbd5e1 !important;
+        font-size: 2.2rem; font-weight: 600 !important; color: #cbd5e1 !important;
         margin-bottom: 1.4rem;
       }
       .maaz-typing-wrap .typing-text {
@@ -91,7 +94,7 @@
         text-shadow: 0 0 18px rgba(56, 189, 248, 0.55);
       }
       .maaz-hero-bio {
-        font-size: 1.65rem !important; color: #94a3b8 !important; line-height: 1.75;
+        font-size: 1.65rem; color: #94a3b8 !important; line-height: 1.75;
         max-width: 60rem; margin: 0 0 2.8rem;
       }
       .maaz-btn-primary {
@@ -126,6 +129,74 @@
       }
       .home-divider svg {
         position: relative; display: block; width: calc(100% + 1.3px); height: 50px;
+      }
+
+      /* Responsive Critical Overrides */
+      @media (max-width: 820px) {
+        #menu { display: block; }
+        header { padding: 1.2rem 4%; }
+        header .logo { font-size: 1.8rem; }
+        header .navbar {
+          display: none;
+          position: fixed; top: 7rem; right: 0;
+          width: 28rem; max-width: 85vw; height: calc(100vh - 7rem);
+          background-color: rgba(11, 15, 25, 0.98);
+          backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+          border-left: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: -10px 0 40px rgba(0, 0, 0, 0.6);
+          overflow-y: auto; z-index: 9999;
+        }
+        header .navbar.nav-toggle {
+          display: block;
+        }
+        header .navbar ul { flex-flow: column; padding: 2rem 1.2rem; width: 100%; }
+        header .navbar ul li { text-align: left; width: 100%; margin: 0.8rem 0; }
+        header .navbar ul li a {
+          display: block; padding: 1rem 1.4rem; color: #cbd5e1 !important; font-size: 1.7rem; border-radius: 0.8rem; border-bottom: none !important;
+        }
+        header .navbar ul li a.active, header .navbar ul li a:hover {
+          color: #38bdf8 !important; background: rgba(56, 189, 248, 0.12);
+        }
+      }
+      @media (max-width: 992px) {
+        .home {
+          flex-direction: column; padding: 11rem 5% 5rem; text-align: center; gap: 3.5rem;
+        }
+        .maaz-hero-left {
+          max-width: 100%; width: 100%; flex: 1 1 100%; display: flex; flex-direction: column; align-items: center;
+        }
+        .maaz-hero-title { font-size: clamp(3.2rem, 5.5vw, 4.6rem) !important; }
+        .maaz-hero-role { font-size: clamp(1.8rem, 3.2vw, 2.2rem) !important; }
+        .maaz-typing-wrap { justify-content: center; font-size: clamp(1.6rem, 2.8vw, 2rem); }
+        .maaz-hero-bio { max-width: 60rem; font-size: 1.55rem !important; margin: 0 auto 2.4rem; }
+        .maaz-hero-buttons { justify-content: center; gap: 1.2rem; }
+        .maaz-hero-stats { justify-content: center; width: 100%; max-width: 52rem; margin: 0 auto 2.4rem; }
+        .maaz-hero-socials .social-icons { display: flex; justify-content: center; gap: 0.8rem; }
+        .maaz-hero-card-wrap { max-width: 42rem; width: 100%; flex: 1 1 100%; margin: 1rem auto; }
+        .maaz-photo-container { height: 30rem; }
+      }
+      @media (max-width: 540px) {
+        .home { padding: 9.5rem 4% 4rem; gap: 2.5rem; }
+        .maaz-hero-badge { font-size: 1.2rem; padding: 0.55rem 1.3rem; margin-bottom: 1.6rem; max-width: 100%; }
+        .maaz-hero-title { font-size: clamp(2.7rem, 7.8vw, 3.6rem) !important; line-height: 1.2; }
+        .maaz-hero-role { font-size: 1.65rem !important; }
+        .maaz-typing-wrap { font-size: 1.45rem; }
+        .maaz-hero-bio { font-size: 1.42rem !important; line-height: 1.65; margin: 0 auto 2rem; }
+        .maaz-hero-buttons { flex-direction: column; width: 100%; gap: 1rem; }
+        .maaz-btn { width: 100%; justify-content: center; padding: 1.2rem 2rem; font-size: 1.45rem; }
+        .maaz-hero-stats {
+          display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; padding: 1.4rem; width: 100%; max-width: 100%;
+        }
+        .maaz-stat-sep { display: none; }
+        .maaz-stat { align-items: center; text-align: center; }
+        .maaz-stat-num { font-size: 2.2rem !important; }
+        .maaz-stat-label { font-size: 1.15rem !important; }
+        .maaz-hero-card-wrap { max-width: 100%; width: 100%; }
+        .maaz-card { padding: 1.6rem; border-radius: 1.8rem; width: 100%; }
+        .maaz-photo-container { height: 25rem; }
+        .maaz-card-footer-status {
+          flex-direction: column; gap: 0.6rem; align-items: flex-start; font-size: 1.1rem;
+        }
       }
     </style>
 </head>
