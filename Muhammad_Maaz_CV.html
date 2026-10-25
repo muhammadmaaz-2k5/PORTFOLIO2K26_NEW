@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Muhammad Maaz — Curriculum Vitae</title>
+<meta name="author" content="Muhammad Maaz">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#07303f; --text:#254450; --text2:#2b4652; --org:#2e525e; --muted:#5a757f; --faint:#9bb2b9;
+    --line:#d9e6e9; --band:#f2f8f9; --teal:#00a5a8; --mint:#6fe3e0; --orange:#ee9b33;
+  }
+  @page{ size:A4; margin:0; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ background:#fff; }
+  body{ font-family:'IBM Plex Sans',sans-serif; color:var(--text); font-size:9.3pt; line-height:1.55;
+        -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  a{ color:inherit; text-decoration:none; }
+  .mono{ font-family:'IBM Plex Mono',monospace; }
+
+  .page{ width:210mm; height:297mm; position:relative; overflow:hidden; page-break-after:always; }
+  .page:last-child{ page-break-after:auto; }
+  .content{ padding:0 15.2mm; }
+  .page:not(.first) .content{ padding-top:8mm; }
+  .page:not(.first) h2{ margin:9pt 0 4.5pt; }
+  .grid2{ display:grid; grid-template-columns:1.12fr 0.88fr; column-gap:18pt; }
+  .grid2 .item{ grid-template-columns:56pt 13pt 1fr; }
+  .grid2 .rows .row{ grid-template-columns:72pt 1fr; }
+
+  /* footer */
+  .foot{ position:absolute; left:15.2mm; right:15.2mm; bottom:10mm; border-top:0.6pt solid var(--line);
+         padding-top:5pt; display:flex; justify-content:space-between;
+         font-family:'IBM Plex Mono',monospace; font-size:6.6pt; letter-spacing:.14em; color:var(--faint); text-transform:uppercase; }
+
+  /* header */
+  .hero{ position:relative; height:223pt; background:linear-gradient(135deg,#062a37 0%,#07303f 45%,#0b5560 100%);
+         padding:32pt 15.2mm 0; color:#fff; overflow:hidden; }
+  .hero .arc{ position:absolute; left:432pt; top:-67pt; width:247pt; height:247pt; border-radius:50%;
+              border:1.2pt solid rgba(0,165,168,.55); }
+  .hero h1{ font-family:'Fraunces',serif; font-weight:700; font-size:31pt; line-height:1.1; letter-spacing:-.01em; }
+  .hero .creds{ margin-top:12pt; font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:8.1pt;
+                letter-spacing:.32em; color:var(--mint); }
+  .hero .role{ margin-top:10pt; font-size:10.4pt; color:#cfe6eb; font-weight:300; }
+  .hero .role span{ margin:0 4pt; }
+  .hero .rule{ width:387pt; height:.7pt; background:rgba(255,255,255,.28); margin:13pt 0 11pt; }
+  .hero .contacts{ width:400pt; display:flex; flex-wrap:wrap; column-gap:18pt; row-gap:5pt; font-size:8.4pt; color:#ddedf1; }
+  .hero .contacts b{ font-family:'IBM Plex Mono',monospace; font-weight:400; font-size:7.4pt; letter-spacing:.12em;
+                     color:var(--mint); margin-right:5pt; }
+  .photo{ position:absolute; left:451pt; top:61pt; width:108pt; height:108pt; border-radius:50%;
+          background:var(--teal); padding:3pt; }
+  .photo .in{ width:100%; height:100%; border-radius:50%; background:#fff; padding:3pt; }
+  .photo .pic{ width:100%; height:100%; border-radius:50%; background:url(maaz_photo.png) center 15% / cover no-repeat; }
+  .photo img{ width:100%; height:100%; border-radius:50%; object-fit:cover; object-position:50% 20%; display:block; }
+  .photo .mg{ width:100%; height:100%; border-radius:50%; background:linear-gradient(135deg,#07303f,#0b5560);
+              display:flex; align-items:center; justify-content:center;
+              font-family:'Fraunces',serif; font-weight:700; font-size:34pt; color:#fff; letter-spacing:.02em; }
+
+  /* stats band */
+  .stats{ display:flex; background:var(--band); border-bottom:.8pt solid var(--line); height:70pt; }
+  .stat{ flex:1; padding:12pt 0 0 15.2mm; border-left:.8pt solid var(--line); }
+  .stat:first-child{ border-left:none; }
+  .stat:not(:first-child){ padding-left:16pt; }
+  .stat .n{ font-family:'Fraunces',serif; font-weight:700; font-size:13.5pt; color:var(--ink); line-height:1.2; }
+  .stat .l{ margin-top:4pt; font-family:'IBM Plex Mono',monospace; font-size:6.5pt; letter-spacing:.16em;
+            color:var(--muted); text-transform:uppercase; line-height:1.4; }
+
+  /* section headings */
+  h2{ display:flex; align-items:center; gap:9pt; font-family:'Fraunces',serif; font-weight:700; font-size:12.4pt;
+      color:var(--ink); margin:15pt 0 8pt; }
+  h2::before{ content:""; width:5.5pt; height:13pt; background:var(--teal); border-radius:1pt; flex:none; margin-right:3pt; }
+  h2::after{ content:""; flex:1; height:.7pt; background:var(--line); }
+  h2 .count{ order:3; font-family:'IBM Plex Mono',monospace; font-weight:400; font-size:6.8pt; letter-spacing:.16em;
+             color:var(--muted); text-transform:uppercase; }
+  h2.with-count::after{ order:2; }
+
+  p.lead{ font-size:9.3pt; line-height:1.55; }
+  p.lead strong{ color:var(--ink); font-weight:600; }
+
+  /* timeline */
+  .tl{ position:relative; }
+  .item{ display:grid; grid-template-columns:87pt 18pt 1fr; position:relative; padding-bottom:8pt; }
+  .item .date{ font-family:'IBM Plex Mono',monospace; font-size:7.3pt; color:var(--muted); line-height:1.55; padding-top:2pt; }
+  .item .date .now{ color:var(--teal); font-weight:600; }
+  .item .rail{ position:relative; }
+  .item .rail::before{ content:""; position:absolute; left:2pt; top:0; bottom:-1pt; width:.8pt; background:var(--line); }
+  .item:last-child .rail::before{ bottom:auto; height:12pt; }
+  .item .rail::after{ content:""; position:absolute; left:-2pt; top:4pt; width:6pt; height:6pt; border-radius:50%;
+                      border:1.6pt solid var(--teal); background:#fff; }
+  .item h3{ font-size:10.1pt; font-weight:600; color:var(--ink); line-height:1.35; }
+  .item .org{ font-size:8.9pt; color:var(--org); font-weight:500; margin-top:2pt; }
+  .item .org .loc{ color:var(--muted); font-weight:400; }
+  ul.dash{ list-style:none; margin-top:5pt; }
+  ul.dash li{ position:relative; padding-left:10pt; font-size:8.7pt; color:var(--text2); line-height:1.45; margin-bottom:2.5pt; }
+  ul.dash li::before{ content:""; position:absolute; left:0; top:5pt; width:4pt; height:1.6pt; background:var(--orange); }
+  .note{ font-style:italic; font-size:8.3pt; color:var(--muted); margin-top:4pt; }
+
+  /* projects (publication-style list) */
+  .legend{ font-family:'IBM Plex Mono',monospace; font-size:6.8pt; letter-spacing:.16em; color:var(--muted);
+           text-transform:uppercase; margin:-3pt 0 7pt; display:flex; align-items:center; gap:6pt; }
+  .legend i{ width:5.5pt; height:5.5pt; background:var(--orange); border-radius:1pt; display:inline-block; }
+  .pub{ display:grid; grid-template-columns:20pt 11pt 1fr; padding:0 0 5pt 0; }
+  .pub .no{ font-family:'IBM Plex Mono',monospace; font-size:7.2pt; color:var(--muted); text-align:right; padding-top:1pt; }
+  .pub .sq{ width:5pt; height:5pt; background:var(--orange); border-radius:1pt; margin:4pt 0 0 3pt; }
+  .pub .body{ font-size:8.3pt; line-height:1.4; color:var(--text2); }
+  .pub .body b{ color:var(--ink); font-weight:600; font-size:8.7pt; }
+  .pub .body em{ color:var(--org); font-style:normal; font-size:7.7pt; font-weight:500; }
+  .pub .desc{ margin-top:1pt; font-size:7.9pt; line-height:1.36; color:var(--text2); }
+  .pub .meta{ margin-top:1.5pt; font-family:'IBM Plex Mono',monospace; font-size:6.8pt; color:var(--muted); line-height:1.35; }
+  .pub .meta b{ color:var(--org); font-weight:600; }
+  .pub .links{ margin-top:1.5pt; font-family:'IBM Plex Mono',monospace; font-size:6.9pt; color:var(--muted); }
+  .pub .links a{ color:var(--teal); font-weight:500; }
+  .pub .links a:hover{ text-decoration:underline; }
+  .pub .links .sep{ color:var(--faint); margin:0 4.5pt; }
+
+  /* label rows */
+  .rows .row{ display:grid; grid-template-columns:102pt 1fr; margin-bottom:3.5pt; }
+  .page:not(.first) .rows .row{ margin-bottom:2.2pt; }
+  .rows .k{ font-family:'IBM Plex Mono',monospace; font-size:7.1pt; letter-spacing:.14em; color:var(--muted);
+            text-transform:uppercase; padding-top:1.5pt; }
+  .rows .v{ font-size:8.8pt; color:var(--text2); line-height:1.48; }
+  .rows .v a{ color:var(--ink); }
+
+  /* chips */
+  .chips{ display:flex; flex-wrap:wrap; gap:5pt; }
+  .page:not(.first) .chips{ gap:3.5pt; }
+  .chip{ font-size:8.2pt; color:var(--text2); padding:4.5pt 7.5pt; border:.7pt solid var(--line); border-radius:2.5pt; background:var(--band); }
+  .page:not(.first) .chip{ font-size:7.5pt; padding:2.5pt 5.5pt; }
+  .chips.outline .chip{ background:#fff; }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 ============ -->
+<section class="page first">
+  <header class="hero">
+    <div class="arc"></div>
+    <h1>Muhammad Maaz</h1>
+    <div class="creds">REACT &nbsp;·&nbsp; NEXT.JS &nbsp;·&nbsp; NODE.JS &nbsp;·&nbsp; NEST.JS &nbsp;·&nbsp; LARAVEL</div>
+    <div class="role">Full-Stack Software Engineer <span>|</span> Web &amp; Mobile Developer <span>|</span> Researcher</div>
+    <div class="rule"></div>
+    <div class="contacts">
+      <div><b>LOCATION</b>Peshawar, PK (Open to Relocate / Remote)</div>
+      <div><b>TEL</b>+92 341 7012094</div>
+      <div><b>EMAIL</b><a href="mailto:muhammadmaaz.dev@gmail.com">muhammadmaaz.dev@gmail.com</a></div>
+      <div><b>GITHUB</b><a href="https://github.com/muhammadmaaz-2k5">github.com/muhammadmaaz-2k5</a></div>
+      <div><b>PORTFOLIO</b><a href="https://muhammad-maaz-dev.vercel.app/">muhammad-maaz-dev.vercel.app</a></div>
+      <div><b>LINKEDIN</b><a href="https://www.linkedin.com/in/muhammad-maaz-a9277435b/">linkedin.com/in/muhammad-maaz-a9277435b</a></div>
+      <div><b>RESEARCHGATE</b><a href="https://www.researchgate.net/profile/Muhammad-Khan-1749">Muhammad-Khan-1749</a></div>
+      <div><b>SCHOLAR</b><a href="https://scholar.google.com/citations?user=iAowRyQAAAAJ">iAowRyQAAAAJ</a></div>
+    </div>
+    <div class="photo"><div class="in"><div class="pic" role="img" aria-label="Muhammad Maaz"></div></div></div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><div class="n">4+ yrs</div><div class="l">Full-stack<br>engineering</div></div>
+    <div class="stat"><div class="n">35+</div><div class="l">Production<br>systems shipped</div></div>
+    <div class="stat"><div class="n">100%</div><div class="l">Upwork &amp; Fiverr<br>success record</div></div>
+    <div class="stat"><div class="n">5</div><div class="l">Featured<br>live projects</div></div>
+    <div class="stat"><div class="n">Research</div><div class="l">ResearchGate &amp;<br>Google Scholar</div></div>
+  </div>
+
+  <div class="content">
+    <h2>Profile</h2>
+    <p class="lead">Full-stack software engineer with <strong>4+ years of experience</strong> architecting and shipping scalable web and mobile applications using <strong>React, Next.js, Node.js, Nest.js and Laravel</strong>, across on-site, remote and freelance engagements on Upwork and Fiverr with a <strong>100% success record</strong>. Built and deployed <strong>35+ production systems</strong> spanning e-commerce, point-of-sale, real-time multiplayer and AI-powered platforms. Strong foundation in REST/GraphQL API design, WebSocket-based real-time systems, database architecture (SQL &amp; NoSQL) and end-to-end delivery, with hands-on use of modern AI-assisted development tools and Agile/Scrum workflows. Also active as a <strong>researcher</strong>, with profiles on ResearchGate and Google Scholar.</p>
+
+    <h2>Professional Experience</h2>
+    <div class="tl">
+      <div class="item">
+        <div class="date">2026 —<br><span class="now">Present</span></div>
+        <div class="rail"></div>
+        <div>
+          <h3>Founder &amp; Studio Lead · Mobile Games Studio</h3>
+          <div class="org">Logic Build Technologies <span class="loc">· Remote · Google Play</span></div>
+          <ul class="dash">
+            <li>Operating an independent mobile gaming studio publishing casual puzzle and brain-teaser titles on Google Play.</li>
+            <li>Architected cross-platform game loops, interactive UI/UX, and 60FPS physics engines.</li>
+            <li>Managed end-to-end publishing, in-app purchases, ad monetization, and Play Console compliance.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="item">
+        <div class="date">Jan 2025 —<br>Feb 2026</div>
+        <div class="rail"></div>
+        <div>
+          <h3>Full-Stack Software Engineer</h3>
+          <div class="org">Spark Zone Technologies <span class="loc">· Full-time · On-site</span></div>
+          <ul class="dash">
+            <li>Built and maintained RESTful APIs and server-side architecture using Node.js, Nest.js, Express.js and Laravel.</li>
+            <li>Developed responsive front-ends with React and Next.js.</li>
+            <li>Worked closely with cross-functional teams to introduce code review, testing and structured deployment practices that improved release reliability.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="item">
+        <div class="date">2022 —<br><span class="now">Present</span></div>
+        <div class="rail"></div>
+        <div>
+          <h3>Freelance Full-Stack Developer</h3>
+          <div class="org">Upwork &amp; Fiverr <span class="loc">· Remote</span></div>
+          <ul class="dash">
+            <li>Built and delivered web and mobile applications for clients worldwide using React, Next.js, Node.js, Nest.js, Laravel and Flutter.</li>
+            <li>Architected scalable backends across SQL and NoSQL databases (MySQL, PostgreSQL, MongoDB).</li>
+            <li>Managed the full project lifecycle on Upwork and Fiverr, from client requirements through deployment.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="item">
+        <div class="date">Jan 2023 —<br>Jul 2023</div>
+        <div class="rail"></div>
+        <div>
+          <h3>MERN Stack Developer Intern</h3>
+          <div class="org">Zidio Development <span class="loc">· Internship · Remote</span></div>
+          <ul class="dash">
+            <li>Shipped application features on the MERN stack (React.js, Node.js, Express.js, MongoDB) during a 6-month remote internship.</li>
+            <li>Collaborated with a distributed team in an Agile environment on sprint planning and code reviews to deliver real-time features on schedule.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot"><span>Muhammad Maaz — Curriculum Vitae</span><span>Page 1 of 2</span></div>
+</section>
+
+<!-- ============ PAGE 2 ============ -->
+<section class="page">
+  <div class="content">
+    <h2 class="with-count">Projects <span class="count">5 Projects</span></h2>
+    <div class="legend"><i></i>Featured software systems · web, mobile &amp; real-time engines · live demos &amp; source linked</div>
+
+    <div class="pub"><div class="no">01</div><div class="sq"></div><div class="body">
+      <b>Notion AI Clone</b> — <em>Collaborative Editor &amp; AI Platform</em>
+      <div class="desc">Built a collaborative editor with AI, real-time documents, multi-user cursors, presence, mentions, media uploads, and APIs. Handled multi-user sync solved with Socket.IO and structured state.</div>
+      <div class="meta"><b>TECH:</b> Next.js, React, Node.js, Socket.IO, Groq, MongoDB, Cloudinary</div>
+      <div class="links">
+        <a href="https://notion-ai-clone-livid.vercel.app/" target="_blank">Live Demo</a><span class="sep">·</span>
+        <a href="https://github.com/muhammadmaaz-2k5/NOTION-CLONE-FOR-PRACTICE" target="_blank">GitHub</a><span class="sep">·</span>
+        <a href="https://res.cloudinary.com/dlrbonrhc/video/upload/v1791238141/2026-10-05_15-02-07_azhmeo.mp4" target="_blank">Video Demo</a>
+      </div>
+    </div></div>
+
+    <div class="pub"><div class="no">02</div><div class="sq"></div><div class="body">
+      <b>Chess.com Clone (PakChess)</b> — <em>Monolithic Real-Time Multiplayer Chess</em>
+      <div class="desc">Built a monolithic full-stack Chess.com clone with multiplayer, chess logic, move validation, leaderboard, sounds, smooth movement, and deployment. Handled real-time sync solved with structured state and Socket.IO.</div>
+      <div class="meta"><b>TECH:</b> React, Node.js, Express, MongoDB, Socket.IO</div>
+      <div class="links">
+        <a href="https://pakchess.vercel.app/leaderboard" target="_blank">Live: /leaderboard</a><span class="sep">·</span>
+        <a href="https://github.com/muhammadmaaz-2k5/PAK-CHESS" target="_blank">GitHub</a><span class="sep">·</span>
+        <a href="https://pak-chess.onrender.com" target="_blank">Backend: pak-chess.onrender.com</a><span class="sep">·</span>
+        <a href="https://res.cloudinary.com/dlrbonrhc/video/upload/v1791238269/2026-10-05_14-51-36_xyyweg.mp4" target="_blank">Video Demo</a>
+      </div>
+    </div></div>
+
+    <div class="pub"><div class="no">03</div><div class="sq"></div><div class="body">
+      <b>YouTube Downloader</b> — <em>Android Media Processing &amp; Workflow App</em>
+      <div class="desc">Built an Android YT-DLP downloader and workflow. Handled reliable downloads and media streams solved with structured processing and state handling.</div>
+      <div class="meta"><b>TECH:</b> Kotlin, Android, YT-DLP</div>
+      <div class="links">
+        <a href="https://github.com/muhammadmaaz-2k5/YTDLP-IMPLEMENTATION-KOTLIN" target="_blank">GitHub</a>
+      </div>
+    </div></div>
+
+    <div class="pub"><div class="no">04</div><div class="sq"></div><div class="body">
+      <b>Ludo Game</b> — <em>Interactive Board Game with Computer Play</em>
+      <div class="desc">Built Ludo with computer play, movement, turns, game state, and board logic. Handled valid moves and turn progression solved with structured game logic.</div>
+      <div class="meta"><b>TECH:</b> React, JavaScript</div>
+      <div class="links">
+        <a href="https://ludo-game-green-eight.vercel.app/computer" target="_blank">Live: /computer</a><span class="sep">·</span>
+        <a href="https://github.com/muhammadmaaz-2k5/LUDO-GAME-FULL-CLONED-FOR-PRACTICE" target="_blank">GitHub</a>
+      </div>
+    </div></div>
+
+    <div class="pub"><div class="no">05</div><div class="sq"></div><div class="body">
+      <b>POS — Universal System for Any Company</b> — <em>Point-of-Sale &amp; Inventory</em>
+      <div class="desc">Full-stack multi-business management platform featuring inventory tracking, checkout billing, order workflows, sales metrics, and role-based permissions.</div>
+      <div class="meta"><b>TECH:</b> React, Node.js, Express, MongoDB, REST APIs</div>
+      <div class="links">
+        <a href="https://pos-universal-system-for-any-compan-seven.vercel.app/login" target="_blank">Live Demo</a><span class="sep">·</span>
+        <a href="https://github.com/muhammadmaaz-2k5/POS-UNIVERSAL-SYSTEM-FOR-ANY-COMPANY" target="_blank">GitHub</a>
+      </div>
+    </div></div>
+
+    <h2>Technical Skills</h2>
+    <div class="rows">
+      <div class="row"><div class="k">Languages</div><div class="v">JavaScript · TypeScript · PHP · Dart · Kotlin · SQL</div></div>
+      <div class="row"><div class="k">Frontend</div><div class="v">React · Next.js · HTML5 · CSS3 · Tailwind CSS</div></div>
+      <div class="row"><div class="k">Backend &amp; APIs</div><div class="v">Node.js · Express.js · Nest.js · Laravel · REST API · GraphQL · Prisma</div></div>
+      <div class="row"><div class="k">Databases</div><div class="v">PostgreSQL · MySQL · MongoDB · Redis · SQLite · Firebase</div></div>
+      <div class="row"><div class="k">Cloud &amp; DevOps</div><div class="v">AWS · Azure · GCP · Docker · CI/CD · Nginx</div></div>
+      <div class="row"><div class="k">Mobile</div><div class="v">Flutter · Android · iOS · Kotlin</div></div>
+      <div class="row"><div class="k">Tools</div><div class="v">Git · GitHub · Puppeteer · Postman · Stripe · Shippo · Brevo · Sentry · AdMob · Jira · Trello · VS Code</div></div>
+      <div class="row"><div class="k">AI-Assisted Dev</div><div class="v">Cursor · GitHub Copilot · Claude Code · ChatGPT</div></div>
+      <div class="row"><div class="k">Workflow</div><div class="v">Agile/Scrum · sprint planning · code review · testing · structured deployment</div></div>
+    </div>
+
+    <h2>Core Strengths</h2>
+    <div class="chips">
+      <span class="chip">Problem-Solving &amp; Debugging</span>
+      <span class="chip">Client Communication</span>
+      <span class="chip">Agile/Scrum Collaboration</span>
+      <span class="chip">Time Management</span>
+      <span class="chip">Adaptability &amp; Fast Learning</span>
+    </div>
+
+    <div class="grid2">
+      <div>
+        <h2>Education</h2>
+        <div class="tl">
+          <div class="item">
+            <div class="date">Undergrad</div>
+            <div class="rail"></div>
+            <div>
+              <h3>BS in Computer Science</h3>
+              <div class="org">University of Engineering and Technology <span class="loc">(UET) · Peshawar</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h2>Research Profiles</h2>
+        <div class="rows">
+          <div class="row"><div class="k">ResearchGate</div><div class="v"><a href="https://www.researchgate.net/profile/Muhammad-Khan-1749" target="_blank">Muhammad-Khan-1749</a></div></div>
+          <div class="row"><div class="k">Scholar</div><div class="v"><a href="https://scholar.google.com/citations?user=iAowRyQAAAAJ" target="_blank">Google Scholar Profile</a></div></div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Additional Information</h2>
+    <div class="rows">
+      <div class="row"><div class="k">Interests</div><div class="v">MERN stack, Next.js &amp; Laravel enthusiast · building scalable web/mobile apps · DevOps tooling</div></div>
+      <div class="row"><div class="k">References</div><div class="v">Available on request.</div></div>
+    </div>
+  </div>
+
+  <div class="foot"><span>Muhammad Maaz — Curriculum Vitae</span><span>Page 2 of 2</span></div>
+</section>
+
+</body>
+</html>

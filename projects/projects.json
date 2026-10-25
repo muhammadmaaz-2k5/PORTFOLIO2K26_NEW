@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Notion AI Clone",
+    "desc": "Collaborative rich document editor featuring TinyMCE integration, real-time multi-user cursor sync, and high-speed AI assistance powered by Groq API. Built with Next.js & React, hosted on Vercel.",
+    "image": "notion_ai",
+    "category": "mern",
+    "links": {
+      "view": "https://notion-ai-clone-livid.vercel.app/",
+      "code": "https://github.com/muhammadmaaz-2k5/NOTION-CLONE-FOR-PRACTICE"
+    }
+  },
+  {
+    "name": "PakChess — Multiplayer Chess",
+    "desc": "Real-time multiplayer chess platform with WebSocket synchronization, Chess.js rule validation, Supabase database, and Sentry monitoring. Frontend hosted on Vercel and backend hosted on Render.",
+    "image": "pakchess",
+    "category": "mern",
+    "links": {
+      "view": "https://pakchess.vercel.app/",
+      "code": "https://github.com/muhammadmaaz-2k5/PAK-CHESS"
+    }
+  },
+  {
+    "name": "POS Universal ERP System",
+    "desc": "Multi-tenant enterprise Point-of-Sale & inventory platform for retail & wholesale with high-speed cashier checkout, barcode scanning, thermal receipt printing, and role-based permissions.",
+    "image": "pos_system",
+    "category": "mern",
+    "links": {
+      "view": "https://pos-universal-system-for-any-compan-seven.vercel.app/login",
+      "code": "https://github.com/muhammadmaaz-2k5/POS-UNIVERSAL-SYSTEM-FOR-ANY-COMPANY"
+    }
+  },
+  {
+    "name": "Ludo King Pro Multiplayer",
+    "desc": "Real-time multiplayer & vs computer Ludo board game platform with authoritative server-side rule engine, WebSocket turns, room matchmaking, AI bots, and custom board themes.",
+    "image": "ludo_game",
+    "category": "mern",
+    "links": {
+      "view": "https://ludo-game-green-eight.vercel.app/computer",
+      "code": "https://github.com/muhammadmaaz-2k5/LUDO-GAME-FULL-CLONED-FOR-PRACTICE"
+    }
+  },
+  {
+    "name": "YouTube Downloader (YT-DLP)",
+    "desc": "Native Android media processing & workflow application powered by Kotlin & YT-DLP engine, handling high-resolution video/audio streams, background queueing, and reliable storage.",
+    "image": "ytdlp_app",
+    "category": "android",
+    "links": {
+      "view": "https://github.com/muhammadmaaz-2k5/YTDLP-IMPLEMENTATION-KOTLIN",
+      "code": "https://github.com/muhammadmaaz-2k5/YTDLP-IMPLEMENTATION-KOTLIN"
+    }
+  },
+  {
+    "name": "Foodpanda Clone SaaS",
+    "desc": "Full-scale on-demand food ordering & restaurant SaaS replicating complete customer journeys with geolocation filtering, customizable ingredient modifiers, and courier tracking.",
+    "image": "foodpanda",
+    "category": "mern",
+    "links": {
+      "view": "https://github.com/muhammadmaaz-2k5",
+      "code": "https://github.com/muhammadmaaz-2k5"
+    }
+  },
+  {
+    "name": "Logic Build Technologies — Mobile Games",
+    "desc": "Independent mobile gaming studio founded and operated by Muhammad Maaz. Crafting and publishing relaxing, colorful puzzle games and satisfying brain teasers on the Google Play Store.",
+    "image": "playstore_apps",
+    "category": "android",
+    "links": {
+      "view": "https://play.google.com/store/apps/dev?id=7585551494582820731",
+      "code": "https://play.google.com/store/apps/dev?id=7585551494582820731"
+    }
+  },
+  {
+    "name": "TaskFlow Pro — Organizer",
+    "desc": "Sleek task and habit tracker built with Flutter and Firebase featuring customizable reminder schedules, weekly analytics graphs, biometric app lock, and cloud backup.",
+    "image": "taskflow",
+    "category": "android",
+    "links": {
+      "view": "https://muhammad-maaz-dev.vercel.app/",
+      "code": "https://github.com/muhammadmaaz-2k5"
+    }
+  },
+  {
+    "name": "Smart Utility & Tools Suite",
+    "desc": "Lightweight, high-performance daily utility app built with modern Material Design 3, offline computations, and instant processing with 10K+ downloads.",
+    "image": "ytdlp_app",
+    "category": "android",
+    "links": {
+      "view": "https://muhammad-maaz-dev.vercel.app/",
+      "code": "https://github.com/muhammadmaaz-2k5"
+    }
+  },
+  {
+    "name": "Neo Play Interactive Game",
+    "desc": "Engaging real-time casual mobile game featuring smooth physics, 60FPS hardware-accelerated animations, global leaderboards, and cloud save synchronization.",
+    "image": "ludo_game",
+    "category": "android",
+    "links": {
+      "view": "https://muhammad-maaz-dev.vercel.app/",
+      "code": "https://github.com/muhammadmaaz-2k5"
+    }
+  }
+]

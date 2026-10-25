@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Muhammad Maaz, portfolio, full stack engineer, next.js, react, node.js, nest.js, typescript, flutter, android, distributed systems, web development, research" />
+    <meta name="description" content="Portfolio of Muhammad Maaz — Full-Stack Software Engineer & Distributed Systems Architect specializing in Next.js, React, Node.js, Nest.js, Flutter, and high-concurrency systems." />
+    <!-- Custom CSS with Cache Buster -->
+    <link rel="stylesheet" href="./assets/css/style.css?v=2026.2">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Favicon -->
+    <link id='favicon' rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-png">
+    <title>Muhammad Maaz | Full-Stack Software Engineer &amp; Systems Architect</title>
+    <!-- Critical Hero & Navbar Styles Embedded (Bypasses Browser Disk Cache) -->
+    <style id="hero-critical-styles">
+      header {
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        z-index: 1000;
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 1.5rem 8%;
+        height: 7rem;
+        background: rgba(8, 12, 22, 0.9) !important;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+      }
+      header .logo {
+        font-size: 2rem; font-weight: 800; color: #ffffff !important;
+        display: flex; align-items: center; gap: 0.8rem;
+      }
+      header .logo i {
+        font-size: 2.2rem;
+        background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      }
+      header .navbar ul li a {
+        font-size: 1.5rem; color: #94a3b8 !important; font-weight: 500;
+        padding: 0.6rem 0.4rem; border-bottom: 2px solid transparent;
+      }
+      header .navbar ul li a.active, header .navbar ul li a:hover {
+        color: #38bdf8 !important; border-bottom: 2px solid #38bdf8 !important;
+        text-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+      }
+      .nav-resume-pill {
+        display: inline-flex !important; align-items: center; gap: 0.6rem;
+        padding: 0.6rem 1.6rem !important; border-radius: 9999px !important;
+        background: rgba(99, 102, 241, 0.15) !important;
+        border: 1px solid rgba(99, 102, 241, 0.4) !important;
+        color: #a5b4fc !important; font-weight: 600 !important;
+        box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
+      }
+      .home {
+        position: relative; display: flex; align-items: center; justify-content: space-between;
+        gap: 4.5rem; min-height: 100vh; padding: 13rem 8% 7rem;
+        background-color: #080c16 !important;
+        background-image: 
+          radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+          radial-gradient(circle at 15% 25%, rgba(99, 102, 241, 0.25) 0%, transparent 45%),
+          radial-gradient(circle at 85% 75%, rgba(14, 165, 233, 0.20) 0%, transparent 50%),
+          radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.12) 0%, transparent 55%) !important;
+        background-size: 32px 32px, 100% 100%, 100% 100%, 100% 100%;
+        overflow: hidden;
+      }
+      .maaz-hero-badge {
+        display: inline-flex; align-items: center; gap: 0.9rem;
+        padding: 0.65rem 1.6rem; background: rgba(16, 185, 129, 0.12) !important;
+        border: 1px solid rgba(16, 185, 129, 0.35) !important; border-radius: 9999px;
+        font-size: 1.35rem; font-weight: 600; color: #34d399 !important;
+        margin-bottom: 2rem; box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+      }
+      .maaz-hero-title {
+        font-size: 5.4rem !important; font-weight: 850 !important; color: #ffffff !important;
+        line-height: 1.15; margin: 0 0 1rem; letter-spacing: -0.03em;
+      }
+      .maaz-gradient-name {
+        background: linear-gradient(135deg, #ffffff 0%, #60a5fa 35%, #a78bfa 70%, #38bdf8 100%) !important;
+        -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important;
+        filter: drop-shadow(0 0 35px rgba(96, 165, 250, 0.35)); display: inline-block;
+      }
+      .maaz-hero-role {
+        font-size: 2.2rem !important; font-weight: 600 !important; color: #cbd5e1 !important;
+        margin-bottom: 1.4rem;
+      }
+      .maaz-typing-wrap .typing-text {
+        color: #38bdf8 !important; font-weight: 700;
+        border-bottom: 2px solid #38bdf8 !important; padding-bottom: 3px;
+        text-shadow: 0 0 18px rgba(56, 189, 248, 0.55);
+      }
+      .maaz-hero-bio {
+        font-size: 1.65rem !important; color: #94a3b8 !important; line-height: 1.75;
+        max-width: 60rem; margin: 0 0 2.8rem;
+      }
+      .maaz-btn-primary {
+        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%) !important;
+        color: #ffffff !important; box-shadow: 0 4px 22px rgba(99, 102, 241, 0.55) !important;
+      }
+      .maaz-btn-secondary {
+        background: rgba(255, 255, 255, 0.06) !important; backdrop-filter: blur(10px);
+        color: #f1f5f9 !important; border: 1px solid rgba(255, 255, 255, 0.16) !important;
+      }
+      .maaz-btn-dark {
+        background: rgba(15, 23, 42, 0.85) !important; backdrop-filter: blur(10px);
+        color: #f8fafc !important; border: 1px solid rgba(139, 92, 246, 0.4) !important;
+      }
+      .maaz-hero-stats {
+        background: rgba(15, 23, 42, 0.75) !important; backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.1) !important; border-radius: 1.8rem;
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35) !important;
+      }
+      .maaz-stat-num {
+        background: linear-gradient(135deg, #38bdf8 0%, #34d399 100%);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      }
+      .maaz-card {
+        background: rgba(15, 23, 42, 0.88) !important; backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6) !important;
+      }
+      .home-divider {
+        position: absolute; bottom: 0; left: 0; width: 100%;
+        overflow: hidden; line-height: 0; z-index: 3; pointer-events: none;
+      }
+      .home-divider svg {
+        position: relative; display: block; width: calc(100% + 1.3px); height: 50px;
+      }
+    </style>
+</head>
+<body oncontextmenu="return false">
+
+<!-- navbar starts -->
+<header>
+        <a href="./" class="logo"><i class="fas fa-code"></i> Muhammad Maaz</a>
+
+        <div id="menu" class="fas fa-bars"></div>
+        <nav class="navbar">
+            <ul>
+            <li><a class="active" href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="./Muhammad_Maaz_CV.pdf" target="_blank" class="nav-resume-pill"><i class="fas fa-file-pdf"></i> Resume</a></li>
+            </ul>
+        </nav>
+</header>
+<!-- navbar ends -->
+
+
+<!-- hero section starts -->
+<section class="home" id="home">
+    <div id="particles-js"></div>
+
+    <div class="maaz-hero-left">
+      <div class="maaz-hero-badge">
+        <span class="badge-pulse-dot"></span>
+        <span>Available for Senior Roles &amp; Architecture Projects</span>
+      </div>
+      
+      <h1 class="maaz-hero-title">
+        Hi, I'm <span class="maaz-gradient-name">Muhammad Maaz</span>
+      </h1>
+      
+      <h2 class="maaz-hero-role">Full-Stack Software Engineer &amp; Systems Architect</h2>
+      
+      <div class="maaz-typing-wrap">
+        <span class="typing-prefix">Specializing in</span>
+        <span class="typing-text"></span>
+      </div>
+      
+      <p class="maaz-hero-bio">Designing and engineering high-performance web platforms, real-time distributed backends, and cross-platform mobile applications. Over 4+ years delivering production SaaS, scalable microservices, and verified apps on the Google Play Store.</p>
+      
+      <div class="maaz-hero-buttons">
+        <a href="#work" class="maaz-btn maaz-btn-primary">
+          <span>Explore Projects</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="#contact" class="maaz-btn maaz-btn-secondary">
+          <span>Get in Touch</span>
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="./Muhammad_Maaz_CV.pdf" target="_blank" class="maaz-btn maaz-btn-dark">
+          <span>Resume (PDF)</span>
+          <i class="fas fa-file-pdf"></i>
+        </a>
+      </div>
+
+      <div class="maaz-hero-stats">
+        <div class="maaz-stat">
+          <span class="maaz-stat-num">4+</span>
+          <span class="maaz-stat-label">Years Exp</span>
+        </div>
+        <div class="maaz-stat-sep"></div>
+        <div class="maaz-stat">
+          <span class="maaz-stat-num">35+</span>
+          <span class="maaz-stat-label">Projects Shipped</span>
+        </div>
+        <div class="maaz-stat-sep"></div>
+        <div class="maaz-stat">
+          <span class="maaz-stat-num">100%</span>
+          <span class="maaz-stat-label">Upwork Success</span>
+        </div>
+        <div class="maaz-stat-sep"></div>
+        <div class="maaz-stat">
+          <span class="maaz-stat-num">5+</span>
+          <span class="maaz-stat-label">Play Store Apps</span>
+        </div>
+      </div>
+
+      <div class="maaz-hero-socials">
+          <ul class="social-icons">
+            <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/muhammad-maaz-a9277435b/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li> 
+            <li><a class="github" aria-label="GitHub" href="https://github.com/muhammadmaaz-2k5" target="_blank"><i class="fab fa-github"></i></a></li>
+            <li><a class="dev" aria-label="ResearchGate" href="https://www.researchgate.net/profile/Muhammad-Khan-1749" target="_blank"><i class="fas fa-graduation-cap"></i></a></li>
+            <li><a class="twitter" aria-label="Google Scholar" href="https://scholar.google.com/citations?user=iAowRyQAAAAJ" target="_blank"><i class="fas fa-book-reader"></i></a></li>
+            <li><a class="instagram" aria-label="Live Portfolio" href="https://muhammad-maaz-dev.vercel.app/" target="_blank"><i class="fas fa-globe"></i></a></li>
+            <li><a class="telegram" aria-label="Email" href="mailto:muhammadmaaz.dev@gmail.com"><i class="fas fa-envelope"></i></a></li>
+          </ul>
+      </div>
+    </div>
+    
+    <div class="maaz-hero-card-wrap">
+      <div class="maaz-card tilt">
+        <div class="maaz-card-topbar">
+          <div class="maaz-dots">
+            <span class="dot dot-r"></span>
+            <span class="dot dot-y"></span>
+            <span class="dot dot-g"></span>
+          </div>
+          <div class="maaz-card-filename"><i class="fas fa-terminal"></i> maaz.architecture.ts</div>
+        </div>
+        
+        <div class="maaz-photo-container">
+          <img draggable="false" src="./assets/images/unnamed.png" alt="Muhammad Maaz">
+          <div class="maaz-badge-bottom-left"><i class="fas fa-check-circle" style="color:#38bdf8;"></i> Muhammad Maaz</div>
+          <div class="maaz-badge-bottom-right">4+ Yrs Exp</div>
+        </div>
+
+        <div class="maaz-card-tech-tags">
+          <span>#Next.js</span>
+          <span>#React</span>
+          <span>#Node.js</span>
+          <span>#Nest.js</span>
+          <span>#TypeScript</span>
+          <span>#Flutter</span>
+          <span>#Docker</span>
+          <span>#Supabase</span>
+        </div>
+
+        <div class="maaz-card-footer-status">
+          <span class="status-live"><i class="fas fa-circle" style="font-size:0.7rem;"></i> systems online</span>
+          <span>latency: 14ms &bull; 99.9% uptime</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Smooth organic wave transition to About section -->
+    <div class="home-divider">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,121.31,192,108.79,235.32,99.88,277.62,80.89,321.39,56.44Z" fill="#ffffff"></path>
+      </svg>
+    </div>
+</section>
+<!-- hero section ends -->
+
+
+<!-- about section starts -->
+<section class="about" id="about">
+    <h2 class="heading"><i class="fas fa-user-alt"></i> About <span>Me</span></h2>
+    
+    <div class="row">
+
+    <div class="image">
+        <img draggable="false" class="tilt" src="./assets/images/unnamed.png" alt="Muhammad Maaz" style="border-radius: 1.5rem; box-shadow: 0 1rem 2rem rgba(0,0,0,0.15); width: 85%; max-width: 360px; object-fit: cover;">
+    </div>
+    <div class="content">
+        <h3>I'm Muhammad Maaz</h3>
+        <span class="tag">Full-Stack Software Engineer &amp; Systems Architect</span>
+        
+        <p>I am a passionate Full-Stack Software Engineer with <strong>4+ years of hands-on experience</strong> building end-to-end web applications, microservices, mobile apps, and cloud-native solutions.<br/><br/>
+        My journey spans full-time engineering at <strong>Spark Zone Technologies</strong>, founding and operating an independent mobile gaming studio <strong><a href="https://play.google.com/store/apps/dev?id=7585551494582820731" target="_blank" style="color: #4f46e5; font-weight: 700;">Logic Build Technologies</a></strong> on Google Play, MERN stack development at <strong>Zidio Development</strong>, and consulting for international clients across Upwork and Fiverr with a <strong>100% 5-star record</strong>.<br/><br/>
+        Specialized in distributed architectures, microservices with Nest.js &amp; Node.js, low-latency WebSocket protocols, resilient database schemas, and publishing verified game titles and utility applications on the Google Play Store.</p>
+        
+        <div class="box-container">
+            <div class="box">
+              <p><span> email : </span> muhammadmaaz.dev@gmail.com</p>
+              <p><span> place : </span> Peshawar, Pakistan (Open to Relocate Anywhere / Remote)</p>
+              <p><span> phone : </span> +92 341 7012094</p>
+              <p><span> gaming studio : </span> <a href="https://play.google.com/store/apps/dev?id=7585551494582820731" target="_blank" style="color:#01875f; font-weight:700;"><i class="fab fa-google-play"></i> Logic Build Technologies</a></p>
+              <p><span> experience : </span> 4+ Years (35+ Projects Shipped)</p>
+            </div>
+        </div>
+        
+        <div class="resumebtn">
+            <a href="./Muhammad_Maaz_CV.pdf" target="_blank" class="btn"><span>View Resume (PDF)</span>
+                <i class="fas fa-file-pdf"></i>
+            </a>
+        </div>
+
+    </div>
+    </div>
+</section>
+<!-- about section ends -->
+
+<!-- skills section starts -->
+<section class="skills" id="skills">
+
+    <h2 class="heading"><i class="fas fa-laptop-code"></i> Skills &amp; <span>Abilities</span></h2>
+
+    <div class="container">
+          <div class="row" id="skillsContainer">
+            <div class="bar"><div class="info"><img src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/48/000000/external-react-a-javascript-library-for-building-user-interfaces-logo-color-tal-revivo.png" alt="ReactJS" /><span>ReactJS</span></div></div>
+            <div class="bar"><div class="info"><img src="https://img.icons8.com/color/48/000000/nextjs.png" alt="NextJS" /><span>NextJS</span></div></div>
+            <div class="bar"><div class="info"><img src="https://img.icons8.com/color/48/000000/typescript.png" alt="TypeScript" /><span>TypeScript</span></div></div>
+            <div class="bar"><div class="info"><img src="https://img.icons8.com/color/48/000000/javascript--v1.png" alt="JavaScript" /><span>JavaScript</span></div></div>
+            <div class="bar"><div class="info"><img src="https://img.icons8.com/color/48/000000/nodejs.png" alt="NodeJS" /><span>NodeJS</span></div></div>
+            <div class="bar"><div class="info"><img src="https://img.icons8.com/color/48/000000/nestjs.png" alt="NestJS" /><span>NestJS</span></div></div>
+            <div class="bar"><div class="info"><img src="https://img.icons8.com/fluency/48/000000/node-js.png" alt="ExpressJS" /><span>ExpressJS</span></div></div>
+            <div class="bar"><div class="info"><img src="https://img.icons8.com/fluent/48/000000/laravel.png" alt="Laravel" /><span>Laravel</span></div></div>
+            <div class="bar"><div class="info"><img src="https://img.icons8.com/offices/48/000000/php-logo.png" alt="PHP" /><span>PHP</span></div></div>
+            <div class="bar"><div class="info"><img src="https://img.icons8.com/color/48/000000/flutter.png" alt="Flutter" /><span>Flutter</span></div></div>
+            <div class="bar"><div class="info"><img src="https://img.icons8.com/color/48/000000/kotlin.png" alt="Kotlin" /><span>Kotlin</span></div></div>
+            <div class="bar"><div class="info"><img src="https://img.icons8.com/fluency/48/000000/android-os.png" alt="Android" /><span>Android</span></div></div>
+            <div class="bar"><div class="info"><img src="https://img.icons8.com/color/48/000000/postgreesql.png" alt="PostgreSQL" /><span>PostgreSQL</span></div></div>
+            <div class="bar"><div class="info"><img src="https://img.icons8.com/color/48/000000/mysql-logo.png" alt="MySQL" /><span>MySQL</span></div></div>
+            <div class="bar"><div class="info"><img src="https://img.icons8.com/color/48/000000/mongodb.png" alt="MongoDB" /><span>MongoDB</span></div></div>
+            <div class="bar"><div class="info"><img src="https://img.icons8.com/color/48/000000/redis.png" alt="Redis" /><span>Redis</span></div></div>
+            <div class="bar"><div class="info"><img src="https://img.icons8.com/color/48/000000/docker.png" alt="Docker" /><span>Docker</span></div></div>
+            <div class="bar"><div class="info"><img src="https://img.icons8.com/color/48/000000/amazon-web-services.png" alt="AWS" /><span>AWS</span></div></div>
+            <div class="bar"><div class="info"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/48px-Tailwind_CSS_Logo.png" alt="TailwindCSS" /><span>TailwindCSS</span></div></div>
+            <div class="bar"><div class="info"><img src="https://img.icons8.com/color/48/000000/firebase.png" alt="Firebase" /><span>Firebase</span></div></div>
+            <div class="bar"><div class="info"><img src="https://img.icons8.com/color/48/000000/connected--v1.png" alt="WebSockets" /><span>WebSockets</span></div></div>
+            <div class="bar"><div class="info"><img src="https://img.icons8.com/color/48/000000/graphql.png" alt="GraphQL" /><span>GraphQL</span></div></div>
+            <div class="bar"><div class="info"><img src="https://img.icons8.com/color/48/000000/git.png" alt="Git VCS" /><span>Git VCS</span></div></div>
+            <div class="bar"><div class="info"><img src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/48/000000/external-postman-is-the-only-complete-api-development-environment-logo-color-tal-revivo.png" alt="Postman" /><span>Postman</span></div></div>
+          </div>
+    </div>
+</section>
+<!-- skills section ends -->
+
+
+<!-- education section starts -->
+<section class="education" id="education">
+
+  <h1 class="heading"><i class="fas fa-graduation-cap"></i> My <span>Education</span></h1>
+
+    <p class="qoute">Rigorous engineering discipline, continuous research, and passion for distributed scalable architecture.</p>
+
+    <div class="box-container">
+
+    <div class="box">
+        <div class="image">
+        <img draggable="false" src="./assets/images/UET.jpg" alt="University of Engineering and Technology (UET) Peshawar">
+        </div>
+        <div class="content">
+        <h3>Bachelor of Science in Computer Science</h3>
+        <p>University of Engineering and Technology (UET) · Peshawar</p>
+        <h4>Undergraduate Degree | Computer Science &amp; Engineering</h4>
+        </div>
+    </div>
+
+    <div class="box">
+      <div class="image">
+      <img draggable="false" src="./assets/images/Researcher.jfif" alt="Academic Research &amp; Publications">
+      </div>
+      <div class="content">
+      <h3>Academic Research &amp; Publications</h3>
+      <p>ResearchGate &amp; Google Scholar</p>
+      <h4>Active Computing Researcher | Distributed Systems &amp; Web Architectures</h4>
+      </div>
+    </div>
+
+</div>
+</section>
+<!-- education section ends -->
+
+
+<!-- work project section starts -->
+<section class="work" id="work">
+
+  <h2 class="heading"><i class="fas fa-laptop-code"></i> Featured <span>Projects</span></h2>
+
+  <div class="box-container">
+    <div class="box tilt">
+      <img draggable="false" src="./assets/images/projects/notion_ai.png" alt="Notion AI Clone" onerror="this.onerror=null;this.src='./assets/images/projects/portfolio1.PNG';" />
+      <div class="content">
+        <div class="tag"><h3>Notion AI Clone</h3></div>
+        <div class="desc">
+          <p>Collaborative document editor featuring <strong>TinyMCE</strong>, real-time multi-user cursor sync, and high-speed AI assistance powered by <strong>Groq API</strong>. Built with Next.js &amp; React, hosted on <strong>Vercel</strong>.</p>
+          <div class="btns">
+            <a href="https://notion-ai-clone-livid.vercel.app/" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+            <a href="https://github.com/muhammadmaaz-2k5/NOTION-CLONE-FOR-PRACTICE" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box tilt">
+      <img draggable="false" src="./assets/images/projects/pakchess.png" alt="PakChess" onerror="this.onerror=null;this.src='./assets/images/projects/portfolio1.PNG';" />
+      <div class="content">
+        <div class="tag"><h3>PakChess — Multiplayer Chess</h3></div>
+        <div class="desc">
+          <p>Real-time multiplayer chess platform with WebSocket synchronization, Chess.js rule validation, <strong>Supabase</strong> database, and <strong>Sentry</strong> monitoring. Frontend hosted on <strong>Vercel</strong> and backend on <strong>Render</strong>.</p>
+          <div class="btns">
+            <a href="https://pakchess.vercel.app/" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+            <a href="https://github.com/muhammadmaaz-2k5/PAK-CHESS" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box tilt">
+      <img draggable="false" src="./assets/images/projects/pos_system.png" alt="POS System" onerror="this.onerror=null;this.src='./assets/images/projects/portfolio1.PNG';" />
+      <div class="content">
+        <div class="tag"><h3>POS Universal ERP</h3></div>
+        <div class="desc">
+          <p>Multi-tenant enterprise Point-of-Sale &amp; inventory platform with high-speed cashier checkout, barcode scanning, thermal receipt printing, and role permissions.</p>
+          <div class="btns">
+            <a href="https://pos-universal-system-for-any-compan-seven.vercel.app/login" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+            <a href="https://github.com/muhammadmaaz-2k5/POS-UNIVERSAL-SYSTEM-FOR-ANY-COMPANY" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box tilt">
+      <img draggable="false" src="./assets/images/projects/ludo_game.png" alt="Ludo King Pro" onerror="this.onerror=null;this.src='./assets/images/projects/portfolio1.PNG';" />
+      <div class="content">
+        <div class="tag"><h3>Ludo King Pro Multiplayer</h3></div>
+        <div class="desc">
+          <p>Real-time multiplayer &amp; vs computer Ludo board game platform with authoritative server-side rule engine, WebSocket turns, and AI bots.</p>
+          <div class="btns">
+            <a href="https://ludo-game-green-eight.vercel.app/computer" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+            <a href="https://github.com/muhammadmaaz-2k5/LUDO-GAME-FULL-CLONED-FOR-PRACTICE" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box tilt">
+      <img draggable="false" src="./assets/images/projects/ytdlp_app.png" alt="YouTube Downloader" onerror="this.onerror=null;this.src='./assets/images/projects/portfolio1.PNG';" />
+      <div class="content">
+        <div class="tag"><h3>YouTube Downloader (YT-DLP)</h3></div>
+        <div class="desc">
+          <p>Native Android media processing &amp; workflow application powered by Kotlin &amp; YT-DLP engine, handling high-resolution video/audio streams.</p>
+          <div class="btns">
+            <a href="https://github.com/muhammadmaaz-2k5/YTDLP-IMPLEMENTATION-KOTLIN" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+            <a href="https://github.com/muhammadmaaz-2k5/YTDLP-IMPLEMENTATION-KOTLIN" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box tilt">
+      <img draggable="false" src="./assets/images/projects/foodpanda.png" alt="Foodpanda Clone" onerror="this.onerror=null;this.src='./assets/images/projects/portfolio1.PNG';" />
+      <div class="content">
+        <div class="tag"><h3>Foodpanda Clone SaaS</h3></div>
+        <div class="desc">
+          <p>Full-scale on-demand food ordering &amp; restaurant SaaS replicating complete customer journeys with geolocation filtering and order workflows.</p>
+          <div class="btns">
+            <a href="https://github.com/muhammadmaaz-2k5" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+            <a href="https://github.com/muhammadmaaz-2k5" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="viewall">
+    <a href="./projects/" class="btn"><span>View All Projects</span>
+      <i class="fas fa-arrow-right"></i>
+  </a>
+  </div>
+
+</section>
+<!-- work project section ends -->
+
+<!-- experience section starts -->
+<section class="experience" id="experience">
+
+  <h2 class="heading"><i class="fas fa-briefcase"></i> Work <span>Experience</span></h2>
+
+  <div class="timeline">
+
+    <div class="container right">
+      <div class="content">
+        <div class="tag">
+          <h2>Logic Build Technologies</h2>
+        </div>
+        <div class="desc">
+            <h3>Founder &amp; Studio Lead · Mobile Games Studio</h3>
+            <p>2026 — Present | Remote</p>
+            <p style="margin-top: 6px; font-size: 1.25rem; text-transform: none; color: #555;">Operating an independent mobile gaming studio publishing relaxing puzzle &amp; casual brain-teaser games on Google Play with 5+ published titles.</p>
+            <div style="margin-top: 8px;">
+              <a href="https://play.google.com/store/apps/dev?id=7585551494582820731" target="_blank" style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; background: #01875f; color: #fff; border-radius: 5px; font-weight: 600; font-size: 1.15rem;"><i class="fab fa-google-play"></i> Google Play Store</a>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container left">
+      <div class="content">
+        <div class="tag">
+          <h2>Spark Zone Technologies</h2>
+        </div>
+        <div class="desc">
+            <h3>Full-Stack Software Engineer · Full-time</h3>
+            <p>Jan 2025 — Feb 2026 | On-site</p>
+            <p style="margin-top: 6px; font-size: 1.25rem; text-transform: none; color: #555;">Architected scalable microservices and web platforms using Next.js, Node.js, Nest.js &amp; PostgreSQL. Reduced latency by 40% using WebSockets and Redis.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container right">
+      <div class="content">
+        <div class="tag">
+          <h2>Freelance (Upwork &amp; Fiverr)</h2>
+        </div>
+        <div class="desc">
+            <h3>Full-Stack Developer · Remote</h3>
+            <p>2021 — Present | Global Clients</p>
+            <p style="margin-top: 6px; font-size: 1.25rem; text-transform: none; color: #555;">Shipped 25+ custom web &amp; mobile solutions with 100% 5-star ratings. Delivered custom SaaS, POS, payment flows, and Google Play apps.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container left">
+      <div class="content">
+        <div class="tag">
+          <h2>Zidio Development</h2>
+        </div>
+        <div class="desc">
+            <h3>MERN Stack Developer Intern · Remote / Hybrid</h3>
+            <p>Jan 2023 — Jul 2023</p>
+            <p style="margin-top: 6px; font-size: 1.25rem; text-transform: none; color: #555;">Developed full-stack features on MERN stack (React, Node, Express, MongoDB). Built JWT authentication, dashboards, and role-based access.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="morebtn">
+    <a href="./experience/" class="btn"><span>View Full Experience</span>
+      <i class="fas fa-arrow-right"></i>
+  </a>
+  </div>
+
+</section>
+<!-- experience section ends -->
+
+<!-- contact section starts -->
+<section class="contact" id="contact" style="background: #fdfdfd;">
+  
+  <h2 class="heading"><i class="fas fa-headset"></i> Get in <span>Touch</span></h2>
+
+  <div class="container" style="max-width: 680px; margin: 3rem auto 1rem; text-align: center;">
+    <div style="background: #ffffff; padding: 4rem 3rem; border-radius: 2rem; box-shadow: 0 10px 35px rgba(0,0,0,0.06); border: 1.5px solid #eef2f6;">
+      
+      <div style="width: 72px; height: 72px; background: rgba(37, 6, 173, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; color: #2506ad; font-size: 2.8rem;">
+        <i class="fas fa-envelope-open-text"></i>
+      </div>
+      
+      <h3 style="font-size: 2.6rem; color: #0f172a; font-weight: 800; margin-bottom: 1rem; text-transform: none;">Let's Build Something Great Together</h3>
+      
+      <p style="font-size: 1.55rem; color: #64748b; max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.6; text-transform: none;">
+        Have a project idea, distributed systems challenge, or looking to hire a Full-Stack Engineer? Reach out directly to my primary email:
+      </p>
+
+      <div style="display: inline-flex; align-items: center; justify-content: center; background: #f8fafc; border: 2px dashed #2506ad; border-radius: 1.4rem; padding: 1.4rem 2.8rem; margin-bottom: 2.5rem; gap: 1.2rem;">
+        <i class="fas fa-envelope" style="color: #2506ad; font-size: 2.2rem;"></i>
+        <a href="mailto:muhammadmaaz.dev@gmail.com" style="font-size: 2.1rem; font-weight: 700; color: #2506ad; letter-spacing: 0.02rem; text-transform: none;">muhammadmaaz.dev@gmail.com</a>
+      </div>
+
+      <div>
+        <a href="mailto:muhammadmaaz.dev@gmail.com" class="btn" style="display: inline-flex; align-items: center; gap: 0.8rem; padding: 1.4rem 3.4rem; border-radius: 4rem; background: #2506ad; color: #fff; font-size: 1.6rem; font-weight: 700; text-transform: none; box-shadow: 0 5px 20px rgba(37, 6, 173, 0.35);">
+          <span>Send Direct Email</span>
+          <i class="fas fa-paper-plane"></i>
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</section>
+<!-- contact section ends -->
+
+
+<!-- footer section starts -->
+<section class="footer">
+
+  <div class="box-container">
+
+      <div class="box">
+          <h3>Muhammad Maaz</h3>
+          <p>Full-Stack Software Engineer &amp; Distributed Systems Architect. Architecting high-scale web platforms, real-time distributed systems, and cross-platform mobile apps with modern engineering standards.</p>
+      </div>
+
+      <div class="box">
+          <h3>quick links</h3>
+          <a href="#home"><i class="fas fa-chevron-circle-right"></i> home</a>
+          <a href="#about"><i class="fas fa-chevron-circle-right"></i> about</a>
+          <a href="#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
+          <a href="#education"><i class="fas fa-chevron-circle-right"></i> education</a>
+          <a href="#work"><i class="fas fa-chevron-circle-right"></i> work</a>
+          <a href="#experience"><i class="fas fa-chevron-circle-right"></i> experience</a>
+      </div>
+
+      <div class="box">
+          <h3>contact info</h3>
+          <p> <i class="fas fa-envelope"></i>muhammadmaaz.dev@gmail.com</p>
+          <p> <i class="fas fa-map-marked-alt"></i>Peshawar, Pakistan (Open to Relocate Anywhere / Remote)</p>
+          <div class="share">
+              <a href="https://www.linkedin.com/in/muhammad-maaz-a9277435b/" class="fab fa-linkedin" aria-label="LinkedIn" target="_blank"></a>
+              <a href="https://github.com/muhammadmaaz-2k5" class="fab fa-github" aria-label="GitHub" target="_blank"></a>
+              <a href="mailto:muhammadmaaz.dev@gmail.com" class="fas fa-envelope" aria-label="Mail" target="_blank"></a>
+              <a href="https://www.researchgate.net/profile/Muhammad-Khan-1749" class="fas fa-graduation-cap" aria-label="ResearchGate" target="_blank"></a>
+              <a href="https://scholar.google.com/citations?user=iAowRyQAAAAJ" class="fas fa-book-reader" aria-label="Google Scholar" target="_blank"></a>
+          </div>
+      </div>
+  </div>
+
+  <h1 class="credit">Designed with <i class="fa fa-heart pulse"></i> by <a href="https://www.linkedin.com/in/muhammad-maaz-a9277435b/">Muhammad Maaz</a></h1>
+
+</section>
+<!-- footer section ends -->
+
+
+<!-- scroll top btn -->
+<a href="#home" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
+<!-- scroll back to top -->
+
+
+<!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
+<!-- jquery cdn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- typed.js cdn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js" integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- particle.js links -->
+<script src="./assets/js/particles.min.js"></script>
+<script src="./assets/js/app.js"></script>
+
+<!-- vanilla tilt.js links -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
+
+<script src="./assets/js/script.js"></script>
+
+</body>
+</html>
